@@ -1,7 +1,6 @@
 package com.roselism.base.app;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,18 +18,16 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
     protected Context context;
     protected List<E> mData;
     protected View mConvertView;
-    protected @LayoutRes int layout;
 
-
-    public RoseAdapter2(Context context, List<E> mData, @LayoutRes int layout) {
+    public RoseAdapter2(Context context, List<E> data) {
         this.context = context;
-        this.mData = mData;
-        this.layout = layout;
+        this.mData = data;
     }
 
     @Override
     public int getCount() {
-        return mData.size();
+        if (mData != null) return mData.size();
+        return 0;
     }
 
     @Override

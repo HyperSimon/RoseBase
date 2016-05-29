@@ -61,7 +61,6 @@ public class PackageManagers {
         return targetApplication.getFlag();
     }
 
-
     public static Drawable getDrawable(Context context, final String packageName) {
         List<Application> applications = getInstalledApp(context);
         RoseList<Application> filterList = new RoseList<>(applications);
@@ -98,14 +97,18 @@ public class PackageManagers {
 
 
     /**
-     * @hide public void getPackageSizeInfo(String packageName, IPackageStatsObserver observer) {
-     * getPackageSizeInfo(packageName, UserHandle.myUserId(), observer);
-     * }
+     * 需要
+     * <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"></uses-permission>
+     * 这个权限
+     *
+     * @param pm
+     * @param packageName
+     * @param observer
      */
-    public static void getPackageSizeInfo(PackageManager pm, String packageName, IPackageStatsObserver.Stub observer) {
+    public static void getPackageSizeInfo(PackageManager pm, String packageName, IPackageStatsObserver observer) {
         Class clazz = pm.getClass();
         try {
-            Method method = clazz.getDeclaredMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.Stub.class);
+            Method method = clazz.getDeclaredMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
             method.invoke(pm, packageName, observer); // 请求
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
@@ -115,11 +118,4 @@ public class PackageManagers {
             e.printStackTrace();
         }
     }
-
-
-    /**
-     *  public void freeStorageAndNotify(long freeStorageSize, IPackageDataObserver observer) {
-     *      freeStorageAndNotify(null, freeStorageSize, observer);
-     *  }
-     */
 }
