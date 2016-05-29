@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- 王镇制造 与具体业务逻辑无关的颜色选项 -->
+    <color name="green_sea">#16a085</color>
+    <color name="emerland">#2ecc71</color>
+    <color name="nephritis">#27ae60</color>
+
+    <color name="peter_river">#3498db</color>
+
+    <color name="midnight_blue">#2c3e50</color>
+
+    <color name="sun_flower">#f1c40f</color>
+    <color name="orange">#f39c12</color>
+
+    <!--白色区间 不同的透明度-->
+    <color name="white">#ffffff</color>
+    <color name="white_10Alpha">#E1FFFFFF</color>
+
+    <!--介于黑色和白色-->
+    <color name="clouds">#ecf0f1</color>
+
+    <!--黑色区间 不同的透明度-->
+</resources>
