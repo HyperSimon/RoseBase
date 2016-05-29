@@ -21,6 +21,7 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
     protected View mConvertView;
     protected @LayoutRes int layout;
 
+
     public RoseAdapter2(Context context, List<E> mData, @LayoutRes int layout) {
         this.context = context;
         this.mData = mData;
@@ -56,6 +57,7 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
 
     protected VH getViewHolder() {
         VH viewholder = mConvertView == null ? createViewHolder() : (VH) mConvertView.getTag();
+
         return viewholder;
     }
 
@@ -66,6 +68,7 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
      */
     @NonNull
     protected abstract VH createViewHolder();
+
 
     public abstract static class ViewHolder {
         public ViewHolder(View viewItem) {
