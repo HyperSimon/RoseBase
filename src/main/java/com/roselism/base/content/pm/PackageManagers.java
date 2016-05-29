@@ -115,4 +115,11 @@ public class PackageManagers {
             e.printStackTrace();
         }
     }
+
+
+    /**
+     *  public void freeStorageAndNotify(long freeStorageSize, IPackageDataObserver observer) {
+     *      freeStorageAndNotify(null, freeStorageSize, observer);
+     *  }
+     */
 }
