@@ -133,14 +133,14 @@ public class Process implements Comparable<Process> {
                 '}';
     }
 
-    /**
-     * 要转换成别人的对象
-     */
-    private class WhatTF implements Converter {
-
-        @Override
-        public Object convert(Object parameter) {
-            return null;
-        }
-    }
+//    /**
+//     * 要转换成别人的对象
+//     */
+//    private class WhatTF implements Converter {
+//
+//        @Override
+//        public Object convert(Object parameter) {
+//            return null;
+//        }
+//    }
 }

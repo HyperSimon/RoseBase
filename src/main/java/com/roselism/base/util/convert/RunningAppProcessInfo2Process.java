@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 
 import com.roselism.base.Process;
-import com.roselism.base.util.PackageUtils;
+import com.roselism.base.content.pm.PackageManagers;
 
 /**
  * RunningAppProcessInfo 转换成 Process
@@ -32,8 +32,8 @@ public class RunningAppProcessInfo2Process implements Converter<ActivityManager.
         process.setName(processInfo.processName); // 设置进程的名字
         String packageName = packageManager.getPackagesForUid(processInfo.uid)[0];
 
-        process.setFlag(PackageUtils.getFlag(context, packageName)); // 将这个应用的所属的flag附给这个进程
-        process.setIcon(PackageUtils.getAppInfo(context, packageName).getIcon());
+        process.setFlag(PackageManagers.getFlag(context, packageName)); // 将这个应用的所属的flag附给这个进程
+        process.setIcon(PackageManagers.getAppInfo(context, packageName).getIcon());
         return process;
     }
 }

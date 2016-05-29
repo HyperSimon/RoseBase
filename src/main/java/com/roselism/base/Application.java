@@ -147,25 +147,4 @@ public class Application implements Comparable<Application> {
                 ", appName='" + appName + '\'' +
                 '}';
     }
-
-    /**
-     * 要转换成别人的对象
-     */
-    private class WhatTF implements Converter {
-
-        @Override
-        public Object convert(Object parameter) {
-            try {
-
-                MessageDigest digest = MessageDigest.getInstance("md5");
-//                digest.update();
-                byte[] bytes = digest.digest();
-
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-    }
 }
