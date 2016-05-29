@@ -30,6 +30,12 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
         return 0;
     }
 
+    public void addData(E e) {
+        mData.add(e);
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public Object getItem(int position) {
         return mData.get(position);
