@@ -2,6 +2,7 @@ package com.roselism.base.content.pm;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageDataObserver;
 import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -110,6 +111,20 @@ public class PackageManagers {
         try {
             Method method = clazz.getDeclaredMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
             method.invoke(pm, packageName, observer); // 请求
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void freeStorageAndNotify(PackageManager pm, long freeStorageSize, IPackageDataObserver observer) {
+        Class clazz = pm.getClass();
+        try {
+            Method getDeclaredMethod = clazz.getDeclaredMethod("freeStorageAndNotify", long.class, IPackageDataObserver.class);
+            getDeclaredMethod.invoke(pm, freeStorageSize, observer); // 请求
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

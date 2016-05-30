@@ -75,6 +75,7 @@ public class SPUtil {
         return getSharedPreferences(context).getBoolean(key, defaultValue);
     }
 
+
     /**
      * 写入并且返回当前的状态
      *

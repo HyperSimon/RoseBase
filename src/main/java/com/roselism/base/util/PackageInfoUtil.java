@@ -8,7 +8,6 @@ import android.content.pm.PackageManager;
  * @author: Hyper Simon Wang
  * @create_time: 2016/05/12 12:20
  * @packageName: com.roselism.mobilesafe24.util
- * @deprecated 不再使用 请使用 {@link com.roselism.base.content.pm.PackageManagers }代替
  */
 public class PackageInfoUtil {
 

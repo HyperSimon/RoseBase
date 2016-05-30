@@ -14,5 +14,4 @@ import java.io.InputStream;
  */
 public class PrivateStoreUtil {
 
-
 }

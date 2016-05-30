@@ -11,7 +11,7 @@ import android.text.format.Formatter;
  * @create_time: 2016/05/23 09:02
  * @packageName: com.roselism.base.util
  */
-public class StoragelUtil {
+public class Storager {
 
     /**
      * 获取机身储存大小
@@ -20,14 +20,22 @@ public class StoragelUtil {
      * @return
      */
     public static String getInternalFreeSize(Context context) {
-
-        /**
-         * 用于获取机身内存大小
-         * 总大小
-         */
         long totalSpace = Environment.getDataDirectory().getTotalSpace();
         return formatFileSize(context, totalSpace);
     }
+
+
+    public static long getInternalFreeSize() {
+        long totalSpace = Environment.getDataDirectory().getFreeSpace();
+        return totalSpace;
+    }
+
+
+    public static long getInternalTotalSize() {
+        long totalSpace = Environment.getDataDirectory().getTotalSpace();
+        return totalSpace;
+    }
+
 
     /**
      * 格式化储存大小
@@ -49,5 +57,25 @@ public class StoragelUtil {
     public static String getExternalFreeSize(Context context) {
         long freeSpace = Environment.getExternalStorageDirectory().getFreeSpace();
         return formatFileSize(context, freeSpace);
+    }
+
+    /**
+     * 外部SD卡可用空间
+     *
+     * @return 外部储存设备的可用空间
+     */
+    public static long getExternalFreeSize() {
+        long freeSpace = Environment.getExternalStorageDirectory().getFreeSpace();
+        return freeSpace;
+    }
+
+    /**
+     * 外部SD卡可用空间
+     *
+     * @return 外部储存设备的可用空间
+     */
+    public static long getExternalTotalSize() {
+        long freeSpace = Environment.getExternalStorageDirectory().getTotalSpace();
+        return freeSpace;
     }
 }
