@@ -14,11 +14,7 @@ public class MD5 {
 
     public static String getMd5(InputStream inputStream) {
         StringBuilder stringBuilder = new StringBuilder();
-
-//        Log.d(TAG, "getMd5() called with: " + "inputStream = [" + inputStream + "]");
-
         try {
-
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             byte[] bytes = new byte[1024];
             int len;
