@@ -1,13 +1,13 @@
 package com.roselism.base.app;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import java.util.List;
+
 
 /**
  * 基于 BaseAdapter 的抽象适配器
@@ -18,23 +18,23 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
     protected Context context;
     protected List<E> mData;
     protected View mConvertView;
-    protected @LayoutRes int layout;
 
-//    public RoseAdapter2(List<E> data, Context context) {
-//        this.mData = data;
-//        this.context = context;
-//    }
-
-    public RoseAdapter2(Context context, List<E> mData, @LayoutRes int layout) {
+    public RoseAdapter2(Context context, List<E> data) {
         this.context = context;
-        this.mData = mData;
-        this.layout = layout;
+        this.mData = data;
     }
 
     @Override
     public int getCount() {
-        return mData.size();
+        if (mData != null) return mData.size();
+        return 0;
     }
+
+    public void addData(E e) {
+        mData.add(e);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public Object getItem(int position) {
@@ -59,7 +59,7 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
     protected abstract void bindData(int position, VH viewholder);
 
     protected VH getViewHolder() {
-        VH viewholder = mConvertView == null ? createViewHolder(mConvertView) : (VH) mConvertView.getTag();
+        VH viewholder = mConvertView == null ? createViewHolder() : (VH) mConvertView.getTag();
 
         return viewholder;
     }
@@ -70,9 +70,8 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
      * @return
      */
     @NonNull
-    protected VH createViewHolder() {
+    protected abstract VH createViewHolder();
 
-    }
 
     public abstract static class ViewHolder {
         public ViewHolder(View viewItem) {

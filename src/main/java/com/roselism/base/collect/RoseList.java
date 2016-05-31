@@ -32,7 +32,7 @@ public class RoseList<E> extends AbstractListWrapper<E> {
         }
         addAll(target);
 
-        RoseList roseList = null;
+//        RoseList roseList = null;
     }
 
     /**

@@ -14,17 +14,5 @@ import java.io.InputStream;
  */
 public class PrivateStoreUtil {
 
-//    public void writeIn(Context context) {
-//        new Thread(() -> {
-//            InputStream inputStream;
-//            try {
-//                inputStream = context.getResources().getAssets().open("commonnum.db");
-//                File file = new File(context.getFilesDir(), "commonnum.db");
-//                InStream2OutStream outStream = new InStream2OutStream(file);
-//                outStream.convert(inputStream);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
+
 }

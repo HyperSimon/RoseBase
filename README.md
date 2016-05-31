@@ -1,2 +1,3 @@
 # Rose
-Rose开源框架
+Rose Android 开发工具包
+

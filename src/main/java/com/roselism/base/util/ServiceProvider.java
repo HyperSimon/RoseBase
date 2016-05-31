@@ -7,7 +7,7 @@ import android.content.Context;
  * @create_time: 2016/05/16 08:49
  * @packageName: com.roselism.mobilesafe24.util
  */
-public class RoseService<T> {
+public class ServiceProvider<T> {
     public void getService(Context context, String serviceName) {
         context.getSystemService(serviceName);
     }
