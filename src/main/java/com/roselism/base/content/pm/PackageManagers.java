@@ -8,6 +8,11 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 
 import com.google.common.collect.Lists;
+
+
+
+
+
 import com.roselism.base.collect.RoseList;
 import com.roselism.base.util.convert.ApplicationInfo2AppInfo;
 import com.roselism.base.util.function.Predicate;

@@ -20,11 +20,6 @@ public class Storager {
      * @return
      */
     public static String getInternalFreeSize(Context context) {
-
-        /**
-         * 用于获取机身内存大小
-         * 总大小
-         */
         long totalSpace = Environment.getDataDirectory().getTotalSpace();
         return formatFileSize(context, totalSpace);
     }
@@ -34,6 +29,7 @@ public class Storager {
 
         return Environment.getDataDirectory().getTotalSpace();
     }
+
 
     /**
      * 格式化储存大小

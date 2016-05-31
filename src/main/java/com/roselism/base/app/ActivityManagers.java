@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import com.google.common.collect.Lists;
 import com.roselism.base.collect.RoseList;
 import com.roselism.base.util.convert.Converter;
+
 import com.roselism.base.util.convert.RunningAppProcessInfo2Process;
 
 import java.util.List;
@@ -44,13 +45,16 @@ public class ActivityManagers {
     public static List<Process> getRunningProcess(Context context) {
         ActivityManager manager = getActivityManager(context);
         List<ActivityManager.RunningAppProcessInfo> processes = manager.getRunningAppProcesses();
+
         RoseList<Process> converterList = new RoseList<>(Lists.<Process>newArrayList());
+
         RunningAppProcessInfo2Process converter = new RunningAppProcessInfo2Process(context.getPackageManager(), context);
         converterList.addAll(processes, converter);
         return converterList;
     }
 
     public static String availMem(Context context) {
+
 
         return android.text.format.Formatter.formatFileSize(context, availMemLong(context));
     }
@@ -191,6 +195,4 @@ public class ActivityManagers {
                     '}';
         }
     }
-
-
 }

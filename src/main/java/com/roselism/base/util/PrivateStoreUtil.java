@@ -6,5 +6,4 @@ package com.roselism.base.util;
  */
 public class PrivateStoreUtil {
 
-
 }
