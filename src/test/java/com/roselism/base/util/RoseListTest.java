@@ -68,7 +68,7 @@ public class RoseListTest {
     @Test
     public void testFilter_mataDataSize() throws Exception {
         List<String> list = getStrings();
-        RoseList<String> filterList = new RoseList<>(list);
+//        RoseList<String> filterList = new RoseList<>(list);
 
         assertEquals(10, list.size()); //测试原集合数据是否可改变
     }

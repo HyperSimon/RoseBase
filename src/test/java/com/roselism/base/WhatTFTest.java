@@ -9,8 +9,8 @@ import java.security.MessageDigest;
  */
 public class WhatTFTest {
 
-    @Test
-    public void testConvert() throws Exception {
-        MessageDigest digest = MessageDigest.getInstance("md5");
-    }
+//    @Test
+//    public void testConvert() throws Exception {
+//        MessageDigest digest = MessageDigest.getInstance("md5");
+//    }
 }

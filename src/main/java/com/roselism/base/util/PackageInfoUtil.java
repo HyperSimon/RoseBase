@@ -21,8 +21,7 @@ public class PackageInfoUtil {
      */
     public static String getVersionName(Context context) throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = getPackageInfo(context);
-        String versionName = packageInfo.versionName;
-        return versionName;
+        return packageInfo.versionName;
     }
 
     /**
@@ -34,8 +33,7 @@ public class PackageInfoUtil {
      */
     public static int getVersionCode(Context context) throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = getPackageInfo(context);
-        int versionCode = packageInfo.versionCode;
-        return versionCode;
+        return packageInfo.versionCode;
     }
 
     /**

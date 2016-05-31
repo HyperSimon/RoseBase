@@ -11,7 +11,7 @@
                 android:color="@color/white_10Alpha"
                 android:dashGap="0dp">
             </stroke>
-            <solid android:color="@color/nephritis"></solid>
+            <solid android:color="@color/nephritis"/>
         </shape>
     </item>
 
@@ -23,7 +23,7 @@
                 android:color="@color/white"
                 android:dashGap="0dp">
             </stroke>
-            <solid android:color="@color/emerland"></solid>
+            <solid android:color="@color/emerland"/>
         </shape>
     </item>
 </selector>

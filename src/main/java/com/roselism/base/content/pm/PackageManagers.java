@@ -90,8 +90,7 @@ public class PackageManagers {
                 return appInfo.getPackageName().equals(packageName);
             }
         });
-        Application targetApplication = applications.get(index);
-        return targetApplication;
+        return applications.get(index);
     }
 
 
@@ -109,11 +108,7 @@ public class PackageManagers {
         try {
             Method method = clazz.getDeclaredMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
             method.invoke(pm, packageName, observer); // 请求
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -123,11 +118,7 @@ public class PackageManagers {
         try {
             Method method = clazz.getDeclaredMethod("freeStorageAndNotify", long.class, IPackageDataObserver.class);
             method.invoke(packageManager, maxValue, observer); // 请求
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }

@@ -2,6 +2,7 @@ package com.roselism.base.content.pm;
 
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
 import com.roselism.base.util.convert.Converter;
 
@@ -115,7 +116,7 @@ public class Application implements Comparable<Application> {
      * @return
      */
     @Override
-    public int compareTo(Application second) {
+    public int compareTo(@NonNull Application second) {
         // 都是系统应用 --> 按照系统应用的字典顺序
 
         // 第一个是系统应用 第二个是用户应用 --> 用户应用排在前面 系统应用排在后面 返回 1

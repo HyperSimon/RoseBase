@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
 import com.google.common.collect.Lists;
 import com.roselism.base.collect.RoseList;
@@ -50,9 +51,8 @@ public class ActivityManagers {
     }
 
     public static String availMem(Context context) {
-        String avail = android.text.format.Formatter.formatFileSize(context, availMemLong(context));
 
-        return avail;
+        return android.text.format.Formatter.formatFileSize(context, availMemLong(context));
     }
 
     public static long availMemLong(Context context) {
@@ -138,7 +138,7 @@ public class ActivityManagers {
          * @return
          */
         @Override
-        public int compareTo(Process second) {
+        public int compareTo(@NonNull Process second) {
             // 当前是User process   se是System process --> -1 排在前面
 
             // 当前User process     se是User process --> 字典顺序

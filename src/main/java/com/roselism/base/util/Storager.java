@@ -32,8 +32,7 @@ public class Storager {
 
     public static float getInternalFreeSize() {
 
-        long totalSpace = Environment.getDataDirectory().getTotalSpace();
-        return totalSpace;
+        return Environment.getDataDirectory().getTotalSpace();
     }
 
     /**
@@ -64,8 +63,7 @@ public class Storager {
      * @return 外部储存设备的可用空间
      */
     public static float getExternalFreeSize() {
-        long freeSpace = Environment.getExternalStorageDirectory().getFreeSpace();
-        return freeSpace;
+        return Environment.getExternalStorageDirectory().getFreeSpace();
     }
 
     public static float getInternalTotalSize() {

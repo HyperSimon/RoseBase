@@ -59,9 +59,8 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
     protected abstract void bindData(int position, VH viewholder);
 
     protected VH getViewHolder() {
-        VH viewholder = mConvertView == null ? createViewHolder() : (VH) mConvertView.getTag();
 
-        return viewholder;
+        return mConvertView == null ? createViewHolder() : (VH) mConvertView.getTag();
     }
 
     /**

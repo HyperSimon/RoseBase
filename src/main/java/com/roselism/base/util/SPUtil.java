@@ -19,8 +19,7 @@ public class SPUtil {
 
     public static String getString(Context context, String key) {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
-        String string = sharedPreferences.getString(key, "");
-        return string;
+        return sharedPreferences.getString(key, "");
     }
 
     /**
@@ -34,7 +33,7 @@ public class SPUtil {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value); // 储存密码
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -50,7 +49,7 @@ public class SPUtil {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value); // 储存密码
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -88,7 +87,7 @@ public class SPUtil {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value); // 储存密码
-        editor.commit();
+        editor.apply();
         return getBoolean(context, key);
     }
 
@@ -96,7 +95,7 @@ public class SPUtil {
         SharedPreferences sharedPreferences = getSharedPreferences(context);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(key, value); // 储存密码
-        editor.commit();
+        editor.apply();
     }
 
     @IntegerRes

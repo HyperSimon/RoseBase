@@ -43,8 +43,6 @@ public class RoseHttp {
             mConnection.setReadTimeout(builder.readTimeOut != 0 ? builder.readTimeOut : 5000);
             mConnection.setConnectTimeout(builder.connectionTimeOut != 0 ? builder.connectionTimeOut : 5000);
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
