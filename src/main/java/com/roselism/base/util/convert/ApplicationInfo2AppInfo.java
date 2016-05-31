@@ -5,7 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.format.Formatter;
 
-import com.roselism.base.Application;
+import com.roselism.base.content.pm.Application;
 
 import java.io.File;
 

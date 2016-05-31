@@ -2,7 +2,7 @@ package com.roselism.base.util;
 
 import android.support.annotation.NonNull;
 
-import com.roselism.base.collect.FilterList;
+import com.roselism.base.collect.RoseList;
 import com.roselism.base.util.function.Predicate;
 
 import org.junit.Test;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by simon on 16-5-24.
  */
-public class FilterListTest {
+public class RoseListTest {
 
     /**
      * 测试下标
@@ -31,7 +31,7 @@ public class FilterListTest {
             list.add(i + "");
         }
 
-        FilterList<String> filter = new FilterList<>(list);
+        RoseList<String> filter = new RoseList<>(list);
 
         // 遍历集合 查询是否与下标对应
         for (int i = 0; i < list.size(); i++) {
@@ -68,7 +68,7 @@ public class FilterListTest {
     @Test
     public void testFilter_mataDataSize() throws Exception {
         List<String> list = getStrings();
-        FilterList<String> filterList = new FilterList<>(list);
+        RoseList<String> filterList = new RoseList<>(list);
 
         assertEquals(10, list.size()); //测试原集合数据是否可改变
     }
@@ -81,7 +81,7 @@ public class FilterListTest {
     @Test
     public void testFilter_subList() throws Exception {
         List<String> list = getStrings();
-        FilterList<String> filterList = new FilterList<>(list);
+        RoseList<String> filterList = new RoseList<>(list);
 
         assertEquals(10, filterList.size()); //测试原集合数据是否可改变
     }
@@ -96,7 +96,7 @@ public class FilterListTest {
     public void testFilter_filterCount() throws Exception {
         List<String> list = getStrings();
 
-        FilterList<String> filterList = new FilterList<>(list);
+        RoseList<String> filterList = new RoseList<>(list);
         int count = filterList.filter(new Predicate<String>() {
             @Override
             public boolean test(String s) {
@@ -116,7 +116,7 @@ public class FilterListTest {
     public void testFilter_sizeAfterFiler() throws Exception {
         List<String> list = getStrings();
 
-        FilterList<String> filterList = new FilterList<>(list);
+        RoseList<String> filterList = new RoseList<>(list);
         filterList.filter(new Predicate<String>() {
             @Override
             public boolean test(String s) {

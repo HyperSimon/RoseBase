@@ -13,8 +13,8 @@ import java.util.List;
  * Created by simon on 16-5-26.
  */
 public class RoseList<E> extends AbstractListWrapper<E> {
-    public RoseList(List<E> backingList) {
-        super(backingList);
+    public RoseList(List<E> metaList) {
+        super(metaList);
     }
 
     /**
@@ -26,13 +26,12 @@ public class RoseList<E> extends AbstractListWrapper<E> {
      * @param <T>        原类的类型
      */
     public <T> void addAll(Collection<? extends T> collection, Converter<T, E> converter) {
+
         List<E> target = new ArrayList<>();
         for (T t : collection) {
             target.add(converter.convert(t));
         }
         addAll(target);
-
-//        RoseList roseList = null;
     }
 
     /**
@@ -85,84 +84,4 @@ public class RoseList<E> extends AbstractListWrapper<E> {
         }
         return -1;
     }
-
-
-    /**
-     * 可直接转换的List集合
-     * Created by simon on 16-5-25.
-     */
-    public class ConverterList<E> extends AbstractListWrapper<E> {
-        public ConverterList(List<E> backingList) {
-            super(backingList);
-        }
-
-        /**
-         * 将一组元素按照特定的转换形式转换成另一种类型
-         * 将T类型数据转换成E类型并存储
-         *
-         * @param collection 原类型
-         * @param converter  转换器
-         * @param <T>        原类的类型
-         */
-        public <T> void addAll(Collection<? extends T> collection, Converter<T, E> converter) {
-            List<E> target = new ArrayList<>();
-            for (T t : collection) {
-                target.add(converter.convert(t));
-            }
-            addAll(target);
-        }
-    }
-
-
-    /**
-     * 专门用于筛选的集合
-     * 比如查询某个符合条件的元素的下标
-     * 过滤掉所有符合条件的元素
-     * Created by simon on 16-5-23.
-     */
-    public class FilterList<E> extends AbstractListWrapper<E> {
-        public FilterList(List<E> backingList) {
-            super(backingList);
-        }
-
-        /**
-         * 过滤掉符合符合条件的元素
-         * 不改变原来的列表，返回一个新的过滤后的列表
-         *
-         * @param filter 过滤器 过滤条件
-         * @return 返回移除的元素的数量
-         */
-        public int filter(Predicate<E> filter) {
-            List<E> removeEle = new ArrayList<>(backingList.size());
-            int count = 0;
-            for (E e : backingList) {
-                if (filter.test(e)) {
-                    removeEle.add(e);
-                    count++;
-                }
-            }
-            backingList.removeAll(removeEle);
-            return count;
-        }
-
-        /**
-         * 获得符合mattcher的第一个元素的下标
-         * 下标将从0开始计算
-         *
-         * @param mattcher 匹配器
-         * @return 返回与mattcher匹配的第一个元素的下标，如果集合中没有匹配项，则返回-1
-         */
-        public int indexOf(Predicate<E> mattcher) {
-            int index = 0;
-            for (E e : backingList) {
-                if (mattcher.test(e)) {
-                    return index;
-                }
-                index++;
-            }
-            return -1;
-        }
-    }
-
-
 }

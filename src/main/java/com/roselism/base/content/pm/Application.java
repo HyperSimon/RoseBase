@@ -1,12 +1,9 @@
-package com.roselism.base;
+package com.roselism.base.content.pm;
 
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
 
 import com.roselism.base.util.convert.Converter;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * @author: Hyper Simon Wang

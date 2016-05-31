@@ -4,15 +4,14 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 
-import com.roselism.base.Process;
+import com.roselism.base.app.ActivityManagers;
 import com.roselism.base.content.pm.PackageManagers;
 
 /**
- * RunningAppProcessInfo 转换成 Process
  * <p>
  * Created by simon on 16-5-25.
  */
-public class RunningAppProcessInfo2Process implements Converter<ActivityManager.RunningAppProcessInfo, Process> {
+public class RunningAppProcessInfo2Process implements Converter<ActivityManager.RunningAppProcessInfo, ActivityManagers.Process> {
 
     private PackageManager packageManager;
     private Context context;
@@ -24,10 +23,10 @@ public class RunningAppProcessInfo2Process implements Converter<ActivityManager.
 
 
     @Override
-    public Process convert(ActivityManager.RunningAppProcessInfo processInfo) {
+    public ActivityManagers.Process convert(ActivityManager.RunningAppProcessInfo processInfo) {
         // 可以通过processInfo 直接获取进程的名字，进程号之类的基本信息
 
-        Process process = new Process();
+        ActivityManagers.Process process = new ActivityManagers.Process();
 
         process.setName(processInfo.processName); // 设置进程的名字
         String packageName = packageManager.getPackagesForUid(processInfo.uid)[0];

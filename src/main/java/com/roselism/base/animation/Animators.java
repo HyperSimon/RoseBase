@@ -1,4 +1,4 @@
-package com.roselism.base.util;
+package com.roselism.base.animation;
 
 /**
  * Created by simon on 16-5-30.

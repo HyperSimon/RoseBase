@@ -2,13 +2,12 @@ package com.roselism.base.content.pm;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageDataObserver;
 import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 
 import com.google.common.collect.Lists;
-import com.roselism.base.Application;
-import com.roselism.base.collect.FilterList;
 import com.roselism.base.collect.RoseList;
 import com.roselism.base.util.convert.ApplicationInfo2AppInfo;
 import com.roselism.base.util.function.Predicate;
@@ -50,7 +49,7 @@ public class PackageManagers {
      */
     public static int getFlag(Context context, final String packageName) {
         List<Application> applications = getInstalledApp(context);
-        FilterList<Application> filterList = new FilterList<>(applications);
+        RoseList<Application> filterList = new RoseList<>(applications);
         int index = filterList.indexOf(new Predicate<Application>() {
             @Override
             public boolean test(Application appInfo) {
@@ -84,7 +83,7 @@ public class PackageManagers {
      */
     public static Application getAppInfo(Context context, final String packageName) {
         List<Application> applications = getInstalledApp(context);
-        FilterList<Application> filterList = new FilterList<>(applications);
+        RoseList<Application> filterList = new RoseList<>(applications);
         int index = filterList.indexOf(new Predicate<Application>() {
             @Override
             public boolean test(Application appInfo) {
@@ -110,6 +109,20 @@ public class PackageManagers {
         try {
             Method method = clazz.getDeclaredMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
             method.invoke(pm, packageName, observer); // 请求
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void freeStorageAndNotify(PackageManager packageManager, int maxValue, IPackageDataObserver.Stub observer) {
+        Class clazz = packageManager.getClass();
+        try {
+            Method method = clazz.getDeclaredMethod("freeStorageAndNotify", long.class, IPackageDataObserver.class);
+            method.invoke(packageManager, maxValue, observer); // 请求
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
