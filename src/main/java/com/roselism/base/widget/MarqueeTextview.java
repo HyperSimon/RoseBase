@@ -40,7 +40,7 @@ public class MarqueeTextview extends TextView {
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         if (hasWindowFocus)
-            super.onWindowFocusChanged(hasWindowFocus);
+            super.onWindowFocusChanged(true);
     }
 
     /**
@@ -57,6 +57,6 @@ public class MarqueeTextview extends TextView {
     @Override
     protected void onFocusChanged(boolean focused, int direction, Rect previouslyFocusedRect) {
         if (focused)
-            super.onFocusChanged(focused, direction, previouslyFocusedRect);
+            super.onFocusChanged(true, direction, previouslyFocusedRect);
     }
 }

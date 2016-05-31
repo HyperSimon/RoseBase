@@ -4,11 +4,13 @@ import android.database.Cursor;
 import android.database.CursorWrapper;
 
 /**
- * @author: Hyper Simon Wang(王大锤)
+ * 对于原有的数据库{@link Cursor}的功能的加强
+ *
+ * @author: Hyper Simon Wang
  * @create_time: 2016/05/17 14:36
  * @packageName: com.roselism.mobilesafe24.model
  */
-public class RoseCursor extends CursorWrapper {
+public class Cursors extends CursorWrapper {
     private Cursor mCursor;
 
     /**
@@ -16,7 +18,7 @@ public class RoseCursor extends CursorWrapper {
      *
      * @param cursor The underlying cursor to wrap.
      */
-    public RoseCursor(Cursor cursor) {
+    public Cursors(Cursor cursor) {
         super(cursor);
         mCursor = cursor;
     }
@@ -53,7 +55,7 @@ public class RoseCursor extends CursorWrapper {
     }
 
     /**
-     * 根据列明获取blob
+     * 根据列名获取blob
      *
      * @param columnName
      * @return

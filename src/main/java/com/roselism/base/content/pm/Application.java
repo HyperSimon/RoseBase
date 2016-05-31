@@ -1,12 +1,10 @@
-package com.roselism.base;
+package com.roselism.base.content.pm;
 
 import android.content.pm.ApplicationInfo;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
 import com.roselism.base.util.convert.Converter;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * @author: Hyper Simon Wang
@@ -118,7 +116,7 @@ public class Application implements Comparable<Application> {
      * @return
      */
     @Override
-    public int compareTo(Application second) {
+    public int compareTo(@NonNull Application second) {
         // 都是系统应用 --> 按照系统应用的字典顺序
 
         // 第一个是系统应用 第二个是用户应用 --> 用户应用排在前面 系统应用排在后面 返回 1
@@ -146,26 +144,5 @@ public class Application implements Comparable<Application> {
                 ", packageName='" + packageName + '\'' +
                 ", appName='" + appName + '\'' +
                 '}';
-    }
-
-    /**
-     * 要转换成别人的对象
-     */
-    private class WhatTF implements Converter {
-
-        @Override
-        public Object convert(Object parameter) {
-            try {
-
-                MessageDigest digest = MessageDigest.getInstance("md5");
-//                digest.update();
-                byte[] bytes = digest.digest();
-
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
     }
 }

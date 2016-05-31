@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
-          android:enterFadeDuration="200"
-          android:exitFadeDuration="200">
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:enterFadeDuration="200"
+    android:exitFadeDuration="200" tools:keep="@drawable/selector_dialog_btn_cancle">
 
     <!--按下-->
     <item android:state_pressed="true">
@@ -11,7 +12,7 @@
                 android:color="@color/white_10Alpha"
                 android:dashGap="0dp">
             </stroke>
-            <solid android:color="@color/orange"></solid>
+            <solid android:color="@color/orange"/>
         </shape>
     </item>
 
@@ -23,7 +24,7 @@
                 android:color="@color/white"
                 android:dashGap="0dp">
             </stroke>
-            <solid android:color="@color/sun_flower"></solid>
+            <solid android:color="@color/sun_flower"/>
         </shape>
     </item>
 </selector>

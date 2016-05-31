@@ -17,7 +17,7 @@
                 android:color="#55000000"
                 android:dashGap="0dp">
             </stroke>
-            <solid android:color="@color/emerland"></solid>
+            <solid android:color="@color/emerland"/>
         </shape>
     </item>
 
@@ -35,7 +35,7 @@
                 android:color="#55000000"
                 android:dashGap="0dp">
             </stroke>
-            <solid android:color="#00000000"></solid>
+            <solid android:color="#00000000"/>
         </shape>
     </item>
 </selector>

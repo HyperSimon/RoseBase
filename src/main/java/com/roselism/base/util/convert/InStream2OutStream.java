@@ -32,8 +32,6 @@ public class InStream2OutStream implements Converter<InputStream, OutputStream> 
             byte[] buffer = new byte[1024 * 2];
             while ((len = in.read(buffer)) != -1)
                 output.write(buffer, 0, len);
-        } catch (FileNotFoundException e) {// 找不到相应文件
-            e.printStackTrace();
         } catch (IOException e) {// IO操作异常
             e.printStackTrace();
         }

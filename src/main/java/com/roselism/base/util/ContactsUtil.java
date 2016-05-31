@@ -26,9 +26,7 @@ public class ContactsUtil {
                 ContactsContract.CommonDataKinds.Phone.NUMBER};
         ContentResolver resolver = context.getContentResolver();
 
-        Cursor resultCursor = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, projection, null, null, null);
-
-        return resultCursor;
+        return resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, projection, null, null, null);
     }
 
     /**
@@ -42,8 +40,7 @@ public class ContactsUtil {
         ContentResolver resolver = context.getContentResolver();
 
         try {
-            InputStream inputStream = resolver.openInputStream(photoUri);
-            return inputStream;
+            return resolver.openInputStream(photoUri);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,5 @@
 package com.roselism.base.util.net;
 
-import android.util.Log;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -14,7 +12,7 @@ import java.net.URL;
  * @version 1.1
  *          修复了构造器函数的bug
  */
-public class HttpConnectionHelper {
+public class RoseHttp {
 
     /**
      * 网络请求的方式
@@ -24,7 +22,7 @@ public class HttpConnectionHelper {
      * 网络连接get方式
      */
     public static final String GET_METHOD = "GET";
-    private static final String TAG = "HttpConnectionHelper";
+    private static final String TAG = "RoseHttp";
 
     HttpURLConnection mConnection;
 
@@ -35,7 +33,7 @@ public class HttpConnectionHelper {
      * @param builder 构造器
      * @since 1.1 修复了构造器的bug
      */
-    private HttpConnectionHelper(Builder builder) {
+    private RoseHttp(Builder builder) {
 
         try {
             URL url = new URL(builder.path);
@@ -45,8 +43,6 @@ public class HttpConnectionHelper {
             mConnection.setReadTimeout(builder.readTimeOut != 0 ? builder.readTimeOut : 5000);
             mConnection.setConnectTimeout(builder.connectionTimeOut != 0 ? builder.connectionTimeOut : 5000);
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,13 +74,11 @@ public class HttpConnectionHelper {
      * @throws IOException
      */
     public int responseCode() throws IOException {
-        Log.i(TAG, "getresponsecode: ");
+//        Log.i(TAG, "getresponsecode: ");
 
-        if (mConnection == null) {
-            Log.e(TAG, "responseCode: -->" + "mConnection 为null");
-            throw new IOException();
-        }
-        Log.i(TAG, "responseCode: --> " + mConnection.getResponseCode());
+        if (mConnection == null) throw new IOException();
+
+//        Log.i(TAG, "responseCode: --> " + mConnection.getResponseCode());
         return mConnection.getResponseCode();
     }
 
@@ -144,8 +138,8 @@ public class HttpConnectionHelper {
             return this;
         }
 
-        public HttpConnectionHelper build() {
-            return new HttpConnectionHelper(this);
+        public RoseHttp build() {
+            return new RoseHttp(this);
         }
     }
 }
