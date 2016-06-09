@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
  * setContentView(R.layout.activity_contacts);
  * super.onCreate(savedInstanceState);
  * 更换位置，正确位置如上代码所示
- * <p>
+ * <p/>
  * 默认调用
  * initView();
  * initEvent();

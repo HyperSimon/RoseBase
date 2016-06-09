@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 集合增强操作的总汇
- * <p>
+ * <p/>
  * Created by simon on 16-5-26.
  */
 public class RoseList<E> extends AbstractListWrapper<E> {
@@ -32,6 +32,17 @@ public class RoseList<E> extends AbstractListWrapper<E> {
             target.add(converter.convert(t));
         }
         addAll(target);
+    }
+
+    /**
+     * 合并另一个集合 collection, 在当前集合的末尾处追加 collection的元素,
+     * 只会添加 在没有在当前的集合中没有的元素
+     * 添加所有元素请使用 <code>addAll</code>方法
+     *
+     * @param collection
+     */
+    private void merge(Collection<E> collection) {
+        // TODO: 16-6-9  
     }
 
     /**

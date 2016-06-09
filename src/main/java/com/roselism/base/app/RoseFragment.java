@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 使用须知
+ * 对Fragment的一些常用方法的简单封装
  *
  * @author: Hyper Simon Wang
  * @create_time: 2016/05/15 19:14
@@ -32,7 +32,7 @@ public abstract class RoseFragment extends Fragment {
     protected abstract void initView();
 
     /**
-     * 初始化控件的事件
+     * 初始化Fragment当中的控件的事件
      */
     protected abstract void initEvent();
 
