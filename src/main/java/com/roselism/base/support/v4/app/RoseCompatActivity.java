@@ -1,4 +1,4 @@
-package com.roselism.base.app;
+package com.roselism.base.support.v4.app;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
  * setContentView(R.layout.activity_contacts);
  * super.onCreate(savedInstanceState);
  * 更换位置，正确位置如上代码所示
- * <p>
+ * <p/>
  * 默认调用
  * initView();
  * initEvent();
@@ -24,11 +24,6 @@ import android.support.v7.app.AppCompatActivity;
  * @packageName: com.roselism.mobilesafe24.activity
  */
 public abstract class RoseCompatActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -44,19 +39,25 @@ public abstract class RoseCompatActivity extends AppCompatActivity {
     protected abstract void initView();
 
     /**
+     * 初始化数据
+     */
+    protected abstract void initData();
+
+    /**
      * 初始化事件
      */
     protected abstract void initEvent();
 
-    /**
-     * 初始化数据
-     */
-    protected abstract void initData();
 
     /**
      * 获取当前上下文对象
      *
      * @return
      */
-    protected abstract Context getActivityContext();
+    protected abstract Context getContext();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 }

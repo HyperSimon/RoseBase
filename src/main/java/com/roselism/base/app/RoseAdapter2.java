@@ -30,8 +30,19 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
         return 0;
     }
 
+    public void setData(List<E> data) {
+        mData = data;
+        notifyDataSetChanged();
+    }
+
     public void addData(E e) {
         mData.add(e);
+        notifyDataSetChanged();
+    }
+
+
+    public void addData(List<E> data) {
+        mData.addAll(data);
         notifyDataSetChanged();
     }
 

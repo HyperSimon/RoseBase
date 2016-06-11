@@ -16,16 +16,6 @@ import android.view.ViewGroup;
  */
 public abstract class RoseFragment extends Fragment {
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        initView();
-        initEvent();
-        initData();
-        initListener();
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
     /**
      * 初始化view控件
      */
@@ -48,4 +38,14 @@ public abstract class RoseFragment extends Fragment {
      * 哪些应该写在initEvent()
      */
     protected abstract void initListener();
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        initView();
+        initEvent();
+        initData();
+        initListener();
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
 }
