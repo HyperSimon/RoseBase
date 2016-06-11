@@ -184,7 +184,6 @@ public class ActivityManagers {
             this.size = size;
         }
 
-
         @Override
         public String toString() {
             return "Process{" +

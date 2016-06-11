@@ -73,6 +73,14 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
         return mConvertView == null ? createViewHolder() : (VH) mConvertView.getTag();
     }
 
+//    protected View getConvertView() {
+//        return mConvertView;
+//    }
+//
+//    protected void setConvertView(View convertView) {
+//        mConvertView = convertView;
+//    }
+
     /**
      * 创建一个viewholder
      *
