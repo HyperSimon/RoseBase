@@ -13,6 +13,7 @@ import android.view.ViewGroup;
  * @author: Hyper Simon Wang
  * @create_time: 2016/05/15 19:14
  * @packageName: com.roselism.mobilesafe24.fragment
+ * @deprecated 不再使用，使用起来很不方便，推荐使用原生的吧
  */
 public abstract class RoseFragment extends Fragment {
 

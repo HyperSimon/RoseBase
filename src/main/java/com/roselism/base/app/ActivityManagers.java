@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * ActivityManager的增强
+ * 将ActiivtyManager中的一些被 @hide的方法通过反射的方式调用
  * Created by simon on 16-5-29.
  */
 public class ActivityManagers {
@@ -29,7 +30,6 @@ public class ActivityManagers {
     private static ActivityManager getActivityManager(Context context) {
         return (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
     }
-
 
     /**
      * 根据包名杀掉进程
@@ -54,8 +54,6 @@ public class ActivityManagers {
     }
 
     public static String availMem(Context context) {
-
-
         return android.text.format.Formatter.formatFileSize(context, availMemLong(context));
     }
 
@@ -66,7 +64,6 @@ public class ActivityManagers {
 
         return memoryInfo.availMem;
     }
-
 
     /**
      * 进程 domain

@@ -26,7 +26,6 @@ public class Storager {
 
 
     public static float getInternalFreeSize() {
-
         return Environment.getDataDirectory().getTotalSpace();
     }
 

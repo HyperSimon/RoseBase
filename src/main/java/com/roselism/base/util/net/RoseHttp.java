@@ -2,6 +2,7 @@ package com.roselism.base.util.net;
 
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
+import android.util.Log;
 
 import com.roselism.base.util.convert.Converter;
 import com.roselism.base.util.convert.InStream2String;
@@ -13,6 +14,7 @@ import java.net.URL;
 
 /**
  * Created by simon on 2016/4/26.
+ * <note>该工具类还在定型阶段，所以不建议使用</note>
  *
  * @version 1.2
  *          允许静态工厂chungking
@@ -26,14 +28,15 @@ public class RoseHttp {
      * 网络请求的方式
      */
     public static final String POST_METHOD = "POST";
+
     /**
      * 网络连接get方式
      */
     public static final String GET_METHOD = "GET";
     public static final Builder DEFAULT_BUILDER = null; // 默认配置
     private static final String TAG = "RoseHttp";
+    private static final boolean DEBUG = true;
     HttpURLConnection mConnection;
-
     private Builder mBuilder;
 
     /**
@@ -63,11 +66,11 @@ public class RoseHttp {
 
             mConnection = (HttpURLConnection) url.openConnection();
 
-            mConnection.setRequestMethod(builder.requestMethod != null ? builder.requestMethod : POST_METHOD);
-            mConnection.setReadTimeout(builder.readTimeOut != 0 ? builder.readTimeOut : 5000);
-            mConnection.setConnectTimeout(builder.connectionTimeOut != 0 ? builder.connectionTimeOut : 5000);
+            mConnection.setRequestMethod(builder == null || builder.requestMethod != null ? builder.requestMethod : POST_METHOD);
+            mConnection.setReadTimeout(builder == null || builder.readTimeOut != 0 ? builder.readTimeOut : 5000);
+            mConnection.setConnectTimeout(builder == null || builder.connectionTimeOut != 0 ? builder.connectionTimeOut : 5000);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -83,11 +86,11 @@ public class RoseHttp {
             URL url = new URL(urlPath);
 
             mConnection = (HttpURLConnection) url.openConnection();
-            mConnection.setRequestMethod(builder.requestMethod != null ? builder.requestMethod : POST_METHOD);
-            mConnection.setReadTimeout(builder.readTimeOut != 0 ? builder.readTimeOut : 5000);
-            mConnection.setConnectTimeout(builder.connectionTimeOut != 0 ? builder.connectionTimeOut : 5000);
+            mConnection.setRequestMethod(builder == null || builder.requestMethod != null ? builder.requestMethod : POST_METHOD);
+            mConnection.setReadTimeout(builder == null || builder.readTimeOut != 0 ? builder.readTimeOut : 5000);
+            mConnection.setConnectTimeout(builder == null || builder.connectionTimeOut != 0 ? builder.connectionTimeOut : 5000);
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -100,20 +103,25 @@ public class RoseHttp {
      */
     @WorkerThread
     public void post(final String url, final DataRequester.ResultCallBack<InputStream> callBack) {
+        if (DEBUG)
+            Log.d(TAG, "post() called with: " + "url = [" + url + "], callBack = [" + callBack + "]");
         new Thread(new Runnable() {
             @Override
             public void run() {
+                if (DEBUG) Log.d(TAG, "run() called with: " + "");
                 openConnection(url, DEFAULT_BUILDER); // 打开连接
                 try {
                     InputStream inputStream = mConnection.getInputStream();
                     callBack.onResult(inputStream);
                 } catch (IOException e) {
                     e.printStackTrace();
+                    callBack.onResult(null);
+                } finally {
+                    mConnection.disconnect();
                 }
             }
-        });
+        }).start();
     }
-
 
     /**
      * @return 返回<code>HttpURLConnection</code>对象
