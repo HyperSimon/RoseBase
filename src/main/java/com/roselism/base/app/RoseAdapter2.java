@@ -13,7 +13,7 @@ import java.util.List;
  * 基于 BaseAdapter 的抽象适配器
  * Created by simon on 16-5-20.
  */
-public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extends BaseAdapter {
+public abstract class RoseAdapter2<VH extends RoseAdapter2.RoseViewHolder, E> extends BaseAdapter {
 
     protected Context context;
     protected List<E> mData;
@@ -23,6 +23,7 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
         this.context = context;
         this.mData = data;
     }
+
 
     @Override
     public int getCount() {
@@ -40,15 +41,13 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
         notifyDataSetChanged();
     }
 
-
     public void addData(List<E> data) {
         mData.addAll(data);
         notifyDataSetChanged();
     }
 
-
     @Override
-    public Object getItem(int position) {
+    public E getItem(int position) {
         return mData.get(position);
     }
 
@@ -82,8 +81,8 @@ public abstract class RoseAdapter2<VH extends RoseAdapter2.ViewHolder, E> extend
     protected abstract VH createViewHolder();
 
 
-    public abstract static class ViewHolder {
-        public ViewHolder(View viewItem) {
+    public abstract static class RoseViewHolder {
+        public RoseViewHolder(View viewItem) {
 
         }
     }
