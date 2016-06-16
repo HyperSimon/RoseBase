@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
-
 /**
  * 基于 BaseAdapter 的抽象适配器
  * Created by simon on 16-5-20.
