@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorToolbarChecked">#FD5002</color>
+    <color name="colorToolbarNormal">#5D646F</color>
+
+    <!-- 王镇制造 与具体业务逻辑无关的颜色选项 -->
+    <color name="turquoise">#1abb9b</color>
+    <color name="green_sea">#16a085</color>
+    <color name="emerland">#2ecc71</color>
+    <color name="nephritis">#27ae60</color>
+
+    <color name="peter_river">#3498db</color>
+    <color name="belize_hole">#2980b9</color>
+    <color name="amethyst">#9b59b6</color>
+
+    <color name="wet_asphalt">#34495e</color>
+    <color name="midnight_blue">#2c3e50</color>
+
+    <color name="sun_flower">#f1c40f</color>
+    <color name="orange">#f39c12</color>
+    <color name="carrot">#e67e22</color>
+    <color name="pumpkin">#d35400</color>
+    <color name="alizarin">#e74c3c</color>
+    <color name="pomegranate">#c0392b</color>
+
+    <!--白色区间 不同的透明度-->
+    <color name="white">#ffffff</color>
+    <color name="white_10Alpha">#E1FFFFFF</color>
+    <color name="absolute_alpha">#00000000</color>
+
+    <!--介于黑色和白色-->
+    <color name="clouds">#ecf0f1</color>
+    <color name="silver">#bdc3c7</color>
+    <color name="concrete">#95a5a6</color>
+    <color name="asbestos">#7f8c8d</color>
+
+    <!--黑色区间 不同的透明度-->
+    <color name="black">#000000</color>
+    <color name="black_15Alpha">#d8000000</color>
+    <color name="colorContactInfo">#2000</color>
+</resources>

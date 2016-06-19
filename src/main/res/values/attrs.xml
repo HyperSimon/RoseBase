@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingItemView">
+
+        <!--是否有可选框-->
+        <attr name="item_checkbox" format="boolean"/>
+
+        <!--当前选项的类型 开头，中间，和底部-->
+        <attr name="item_position">
+            <enum name="top" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="single" value="4"/>
+        </attr>
+
+        <attr name="item_content" format="string"/>
+
+    </declare-styleable>
+</resources>
