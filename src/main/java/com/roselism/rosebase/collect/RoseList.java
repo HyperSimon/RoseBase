@@ -1,7 +1,7 @@
 package com.roselism.rosebase.collect;
 
-import com.roselism.rosebase.util.convert.Converter;
-import com.roselism.rosebase.util.function.Predicate;
+import com.android.internal.util.Predicate;
+import com.roselism.rosebase.function.convert.Converter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,29 +9,12 @@ import java.util.List;
 
 /**
  * 集合增强操作的总汇
- * <p/>
+ * <p>
  * Created by simon on 16-5-26.
  */
 public class RoseList<E> extends AbstractListWrapper<E> {
     public RoseList(List<E> metaList) {
         super(metaList);
-    }
-
-    /**
-     * 将一组元素按照特定的转换形式转换成另一种类型并存储到列表中
-     * 将T类型数据转换成E类型并存储
-     *
-     * @param collection 原类型
-     * @param converter  转换器
-     * @param <T>        原类的类型
-     */
-    public <T> void addAll(Collection<? extends T> collection, Converter<T, E> converter) {
-
-        List<E> target = new ArrayList<>();
-        for (T t : collection) {
-            target.add(converter.convert(t));
-        }
-        addAll(target);
     }
 
     /**
@@ -42,7 +25,7 @@ public class RoseList<E> extends AbstractListWrapper<E> {
      * @param collection
      */
     private void merge(Collection<E> collection) {
-        // TODO: 16-6-9  
+        // TODO: 16-6-9
     }
 
     /**
@@ -59,6 +42,20 @@ public class RoseList<E> extends AbstractListWrapper<E> {
     }
 
     /**
+     * 将一组元素按照特定的转换形式转换成另一种类型并存储到列表中
+     * 将T类型数据转换成E类型并存储
+     *
+     * @param collection 原类型
+     * @param converter  转换器
+     * @param <T>        原类的类型
+     */
+    public <T> void addAll(Collection<? extends T> collection, Converter<T, E> converter) {
+        List<E> target = new ArrayList<>();
+        for (T t : collection) target.add(converter.convert(t));
+        addAll(target);
+    }
+
+    /**
      * 过滤掉列表中所有符合特定条件的元素
      * 当filter的返回值为true时，该对应元素就会被移除
      *
@@ -69,7 +66,7 @@ public class RoseList<E> extends AbstractListWrapper<E> {
         List<E> removeEle = new ArrayList<>(backingList.size());
         int count = 0;
         for (E e : backingList) {
-            if (filter.test(e)) {
+            if (filter.apply(e)) {
                 removeEle.add(e);
                 count++;
             }
@@ -88,9 +85,7 @@ public class RoseList<E> extends AbstractListWrapper<E> {
     public int indexOf(Predicate<E> mattcher) {
         int index = 0;
         for (E e : backingList) {
-            if (mattcher.test(e)) {
-                return index;
-            }
+            if (mattcher.apply(e)) return index;
             index++;
         }
         return -1;
