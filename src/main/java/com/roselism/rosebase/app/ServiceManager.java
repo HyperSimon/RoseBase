@@ -39,7 +39,6 @@ public class ServiceManager {
         for (ActivityManager.RunningServiceInfo service : runningServices) {
             if (componentName.getClassName().equals(service.service.getClassName())) {
                 // 已经开启了服务
-//                Log.i(TAG, "isRunning: service " + service.service.getClassName() + " ----------------------is running --------");
                 return true;
             }
         }

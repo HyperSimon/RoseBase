@@ -1,6 +1,5 @@
 package com.roselism.rosebase.collect;
 
-
 import java.util.AbstractList;
 import java.util.Collection;
 import java.util.List;

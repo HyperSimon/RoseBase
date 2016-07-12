@@ -51,7 +51,6 @@ public abstract class SettingItemView extends RelativeLayout {
      */
     private void initView(Context context, AttributeSet attrs) {
         settingItem = View.inflate(context, R.layout.view_setting_item, this);
-//        ButterKnife.bind(settingItem);
         settingItem.setClickable(true);
 
         // 获取属性列表
@@ -106,13 +105,10 @@ public abstract class SettingItemView extends RelativeLayout {
     }
 
     /**
-     * 获取是否是自动更新
-     *
      * @param context
      * @return
      */
     public abstract boolean isChecked(Context context);
-
 
     /**
      * 设置选中框的选中状态

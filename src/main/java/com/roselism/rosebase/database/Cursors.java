@@ -43,7 +43,6 @@ public class Cursors extends CursorWrapper {
         return mCursor.getLong(mCursor.getColumnIndex(columnName));
     }
 
-
     /**
      * 根据列名获取double值
      *

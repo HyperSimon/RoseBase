@@ -1,7 +1,7 @@
 package com.roselism.rosebase.collect;
 
-import com.roselism.base.util.convert.Converter;
-import com.roselism.base.util.function.Predicate;
+import com.roselism.rosebase.util.convert.Converter;
+import com.roselism.rosebase.util.function.Predicate;
 
 import java.util.ArrayList;
 import java.util.Collection;
